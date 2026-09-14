@@ -8,8 +8,6 @@ Flicky Ashtray is a quiet native desktop smoking log for macOS and Windows. Choo
 
 ## 直接下载 / Download
 
-普通使用者不需要 Fork、Clone 或自己构建，点击对应平台即可下载：
-
 - [⬇️ 下载 macOS 版（DMG，macOS 13+ / Apple Silicon）](https://github.com/doublesq97-ui/flicky-ashtray/releases/download/v0.4.0/Flicky-Ashtray-0.4.0-arm64.dmg)
 - [⬇️ 下载 Windows 预览版（ZIP，Windows 10/11 x64）](https://github.com/doublesq97-ui/flicky-ashtray/releases/download/v0.5.0-preview.1/Flicky-Ashtray-0.5.0-preview.1-windows-x64.zip)
 
