@@ -110,6 +110,6 @@ test('packaged app and DMG carry the code and AI-asset license notices', async (
 
   assert.match(build, /RESOURCES_DIR\/LICENSE\.txt/);
   assert.match(build, /RESOURCES_DIR\/ASSET-LICENSE\.md/);
-  assert.match(build, /Licenses\/MIT\.txt/);
-  assert.match(build, /Licenses\/AI-ASSETS-CC0\.md/);
+  assert.match(build, /Licenses\/POLYFORM-NONCOMMERCIAL-1\.0\.0\.txt/);
+  assert.match(build, /Licenses\/AI-ASSETS-CC-BY-NC-4\.0\.md/);
 });

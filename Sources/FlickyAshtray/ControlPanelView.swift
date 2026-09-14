@@ -493,7 +493,7 @@ struct ControlPanelView: View {
                 Text("@Sukiea1008")
                     .foregroundStyle(.secondary)
                 Spacer()
-                Link("github.com/Sukiea1008", destination: URL(string: "https://github.com/Sukiea1008")!)
+                Link("github.com/doublesq97-ui", destination: URL(string: "https://github.com/doublesq97-ui")!)
             }
         }
         .font(.caption)

@@ -94,8 +94,8 @@ test('control panel footer identifies the author and links to GitHub', async () 
   const panel = await read('../Sources/FlickyAshtray/ControlPanelView.swift');
 
   assert.match(panel, /Text\("@Sukiea1008"\)/);
-  assert.match(panel, /Link\("github\.com\/Sukiea1008"/);
-  assert.match(panel, /https:\/\/github\.com\/Sukiea1008/);
+  assert.match(panel, /Link\("github\.com\/doublesq97-ui"/);
+  assert.match(panel, /https:\/\/github\.com\/doublesq97-ui/);
 });
 
 test('status card cannot open settings and each excess stage has dedicated artwork', async () => {
