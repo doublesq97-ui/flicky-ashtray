@@ -60,7 +60,7 @@ Windows x64 自包含预览包：
 ./scripts/build-windows.sh
 ```
 
-Windows 的可移植业务逻辑测试可以在 macOS、Linux 或 Windows 上运行；WPF 界面需要 Windows 10/11 实机完成最终体验验收。希望让 AI 协助构建或修改时，可直接使用 [`AI_BUILD_PROMPT.md`](AI_BUILD_PROMPT.md)。
+Windows 的可移植业务逻辑测试可以在 macOS、Linux 或 Windows 上运行；WPF 界面需要 Windows 10/11 实机完成最终体验验收。
 
 ## 数据与隐私 / Data & privacy
 
