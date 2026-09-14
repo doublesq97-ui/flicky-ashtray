@@ -1,10 +1,12 @@
 {
   "name": "flicky-ashtray",
-  "version": "0.4.0",
+  "version": "0.5.0-preview.1",
   "private": true,
   "type": "module",
   "scripts": {
     "test": "node --test tests/*contract.test.mjs && swift test",
-    "build:mac": "./scripts/build-app.sh"
+    "test:win-core": "dotnet run --project Windows/FlickyAshtray.Core.Tests/FlickyAshtray.Core.Tests.csproj --configuration Release --nologo",
+    "build:mac": "./scripts/build-app.sh",
+    "build:win": "./scripts/build-windows.sh"
   }
 }

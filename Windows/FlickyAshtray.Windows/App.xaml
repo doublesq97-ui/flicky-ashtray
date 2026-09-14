@@ -1,0 +1,64 @@
+<Application x:Class="FlickyAshtray.Windows.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             ShutdownMode="OnExplicitShutdown">
+    <Application.Resources>
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#F6F8FB" />
+        <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFFFF" />
+        <SolidColorBrush x:Key="RaisedSurfaceBrush" Color="#FFF1F5FA" />
+        <SolidColorBrush x:Key="PrimaryTextBrush" Color="#FF18202B" />
+        <SolidColorBrush x:Key="SecondaryTextBrush" Color="#FF52606C" />
+        <SolidColorBrush x:Key="TertiaryTextBrush" Color="#FF7A8794" />
+        <SolidColorBrush x:Key="BorderBrush" Color="#FFD6DFE9" />
+        <SolidColorBrush x:Key="AccentBrush" Color="#FF3478F6" />
+        <SolidColorBrush x:Key="AccentSoftBrush" Color="#FFE5EFFF" />
+        <SolidColorBrush x:Key="DangerBrush" Color="#FFD43A3A" />
+        <SolidColorBrush x:Key="DangerSoftBrush" Color="#FFFFECEC" />
+
+        <Style TargetType="Window">
+            <Setter Property="FontFamily" Value="Microsoft YaHei UI, Segoe UI" />
+            <Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="12,7" />
+            <Setter Property="MinHeight" Value="32" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Padding" Value="15,8" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+        <Style x:Key="DangerButtonStyle" TargetType="Button">
+            <Setter Property="Padding" Value="12,7" />
+            <Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
+            <Setter Property="Background" Value="{DynamicResource DangerSoftBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+        <Style x:Key="CardStyle" TargetType="Border">
+            <Setter Property="Background" Value="{DynamicResource SurfaceBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="14" />
+            <Setter Property="Padding" Value="16" />
+            <Setter Property="Margin" Value="0,0,0,14" />
+        </Style>
+        <Style x:Key="SectionExpanderStyle" TargetType="Expander">
+            <Setter Property="IsExpanded" Value="True" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style x:Key="SecondaryTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryTextBrush}" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,46 @@
+<Window x:Class="FlickyAshtray.Windows.StatusWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="292" Height="126"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ShowInTaskbar="False"
+        ShowActivated="False"
+        Topmost="True"
+        MouseEnter="Window_MouseEnter"
+        MouseLeave="Window_MouseLeave">
+    <Border Margin="8"
+            Padding="14"
+            Background="{DynamicResource SurfaceBrush}"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="1"
+            CornerRadius="14">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="18" ShadowDepth="4" Opacity="0.25" />
+        </Border.Effect>
+        <StackPanel>
+            <DockPanel LastChildFill="True">
+                <Button x:Name="PinButton"
+                        DockPanel.Dock="Right"
+                        Width="30" Height="28"
+                        Padding="0"
+                        ToolTip="固定今日状态"
+                        Click="PinButton_Click">📌</Button>
+                <TextBlock x:Name="StatusText"
+                           VerticalAlignment="Center"
+                           FontSize="13"
+                           FontWeight="SemiBold" />
+            </DockPanel>
+            <TextBlock x:Name="CountText"
+                       Margin="0,7,0,0"
+                       FontSize="12"
+                       Foreground="{DynamicResource SecondaryTextBrush}" />
+            <TextBlock x:Name="FeedbackText"
+                       Margin="0,5,0,0"
+                       FontSize="11"
+                       Foreground="{DynamicResource SecondaryTextBrush}" />
+        </StackPanel>
+    </Border>
+</Window>

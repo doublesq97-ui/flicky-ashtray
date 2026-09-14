@@ -1,0 +1,288 @@
+<Window x:Class="FlickyAshtray.Windows.ControlPanelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:FlickyAshtray.Windows"
+        Title="Flicky Ashtray"
+        Width="620" Height="820"
+        MinWidth="540" MinHeight="640"
+        WindowStartupLocation="CenterScreen"
+        Closing="Window_Closing">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="24">
+            <DockPanel Margin="0,0,0,18" LastChildFill="True">
+                <Button x:Name="DoneButton"
+                        DockPanel.Dock="Right"
+                        Content="完成"
+                        MinWidth="76"
+                        Click="DoneButton_Click" />
+                <StackPanel>
+                    <TextBlock Text="Flicky Ashtray" FontSize="22" FontWeight="Bold" />
+                    <TextBlock x:Name="HeaderSubtitle"
+                               Margin="0,3,0,0"
+                               Foreground="{DynamicResource SecondaryTextBrush}" />
+                </StackPanel>
+            </DockPanel>
+
+            <Border x:Name="PersistenceBanner"
+                    Margin="0,0,0,14"
+                    Padding="12"
+                    Background="{DynamicResource DangerSoftBrush}"
+                    BorderBrush="{DynamicResource DangerBrush}"
+                    BorderThickness="1"
+                    CornerRadius="10"
+                    Visibility="Collapsed">
+                <TextBlock x:Name="PersistenceMessage"
+                           Foreground="{DynamicResource DangerBrush}" />
+            </Border>
+
+            <Border x:Name="OnboardingPanel" Style="{StaticResource CardStyle}" Visibility="Collapsed">
+                <StackPanel>
+                    <TextBlock Text="先定下今天的节奏" FontSize="20" FontWeight="SemiBold" />
+                    <TextBlock Margin="0,7,0,18"
+                               Text="它只是今天的约定，不是最高只能设到 8。以后可以随时调整。"
+                               Style="{StaticResource SecondaryTextStyle}" />
+                    <DockPanel Margin="0,0,0,6">
+                        <TextBlock x:Name="OnboardingLimitText"
+                                   DockPanel.Dock="Right"
+                                   FontWeight="SemiBold" />
+                        <TextBlock Text="每日上限" FontWeight="SemiBold" />
+                    </DockPanel>
+                    <Slider x:Name="OnboardingLimitSlider"
+                            Minimum="1" Maximum="60"
+                            IsSnapToTickEnabled="True" TickFrequency="1"
+                            ValueChanged="OnboardingLimitSlider_ValueChanged" />
+                    <Button Margin="0,20,0,0"
+                            Content="开始使用"
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Click="StartUsingButton_Click" />
+                    <TextBlock Margin="0,14,0,0"
+                               Text="设置完成后面板会收起，桌面只留下小桌宠；任务栏托盘随时可以找回它。"
+                               Style="{StaticResource SecondaryTextStyle}" />
+                </StackPanel>
+            </Border>
+
+            <StackPanel x:Name="MainPanel">
+                <Border Style="{StaticResource CardStyle}">
+                    <Expander Header="📊  今日状态" Style="{StaticResource SectionExpanderStyle}">
+                        <Grid Margin="0,14,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock x:Name="StatusMessageText" FontSize="14" FontWeight="SemiBold" />
+                                <TextBlock x:Name="TodayCountText"
+                                           Margin="0,5,0,2"
+                                           FontFamily="Segoe UI Variable Display, Microsoft YaHei UI"
+                                           FontSize="30"
+                                           FontWeight="Bold" />
+                                <TextBlock x:Name="TodayDetailText"
+                                           Foreground="{DynamicResource SecondaryTextBrush}" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                                <Button x:Name="AddRecordButton"
+                                        Content="记一根"
+                                        Style="{StaticResource PrimaryButtonStyle}"
+                                        Click="AddRecordButton_Click" />
+                                <Button x:Name="UndoButton"
+                                        Margin="0,8,0,0"
+                                        Content="撤销今日上一根"
+                                        Click="UndoButton_Click" />
+                                <TextBlock x:Name="UndoHelpText"
+                                           Margin="0,5,0,0"
+                                           HorizontalAlignment="Right"
+                                           FontSize="10.5"
+                                           Foreground="{DynamicResource TertiaryTextBrush}" />
+                            </StackPanel>
+                        </Grid>
+                    </Expander>
+                </Border>
+
+                <Border Style="{StaticResource CardStyle}">
+                    <Expander Header="🌸  本周目标" Style="{StaticResource SectionExpanderStyle}">
+                        <StackPanel Margin="0,14,0,0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="142" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <local:ChallengeFlower x:Name="ChallengeFlowerControl"
+                                                       Width="132" Height="132"
+                                                       HorizontalAlignment="Left" />
+                                <StackPanel Grid.Column="1" Margin="14,4,0,0">
+                                    <TextBlock x:Name="ChallengeHeadlineText"
+                                               FontSize="18"
+                                               FontWeight="SemiBold" />
+                                    <TextBlock x:Name="ChallengeDetailText"
+                                               Margin="0,7,0,0"
+                                               Foreground="{DynamicResource SecondaryTextBrush}" />
+                                    <TextBlock x:Name="ChallengeRewardText"
+                                               Margin="0,8,0,0"
+                                               Foreground="{DynamicResource AccentBrush}"
+                                               FontWeight="SemiBold" />
+                                    <TextBlock x:Name="ChallengeMetaText"
+                                               Margin="0,7,0,0"
+                                               FontSize="11"
+                                               Foreground="{DynamicResource TertiaryTextBrush}" />
+                                </StackPanel>
+                            </Grid>
+
+                            <Border Margin="0,14,0,0"
+                                    Padding="13"
+                                    Background="{DynamicResource RaisedSurfaceBrush}"
+                                    CornerRadius="10">
+                                <StackPanel>
+                                    <DockPanel Margin="0,0,0,5">
+                                        <TextBlock x:Name="ChallengeTargetText"
+                                                   DockPanel.Dock="Right"
+                                                   FontWeight="SemiBold" />
+                                        <TextBlock Text="这一轮想守住的天数" FontWeight="SemiBold" />
+                                    </DockPanel>
+                                    <Slider x:Name="ChallengeTargetSlider"
+                                            Minimum="1" Maximum="7"
+                                            TickFrequency="1"
+                                            IsSnapToTickEnabled="True"
+                                            ValueChanged="ChallengeTargetSlider_ValueChanged" />
+                                    <TextBox x:Name="RewardBox"
+                                             Margin="0,12,0,0"
+                                             Padding="9,7"
+                                             MaxLength="80"
+                                             ToolTip="达成后给自己的奖励（可选）" />
+                                    <ComboBox x:Name="CadenceCombo"
+                                              Margin="0,10,0,0"
+                                              SelectionChanged="CadenceCombo_SelectionChanged" />
+                                    <TextBlock x:Name="CadenceHelpText"
+                                               Margin="0,6,0,0"
+                                               Style="{StaticResource SecondaryTextStyle}" />
+                                    <TextBlock x:Name="ChallengeCapacityText"
+                                               Margin="0,7,0,0"
+                                               Style="{StaticResource SecondaryTextStyle}" />
+                                    <Button x:Name="ChallengeActionButton"
+                                            Margin="0,12,0,0"
+                                            HorizontalAlignment="Right"
+                                            Style="{StaticResource PrimaryButtonStyle}"
+                                            Click="ChallengeActionButton_Click" />
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+                </Border>
+
+                <Border Style="{StaticResource CardStyle}">
+                    <Expander Header="📈  最近 7 天" Style="{StaticResource SectionExpanderStyle}">
+                        <StackPanel Margin="0,14,0,0">
+                            <local:TrendChart x:Name="TrendChartControl" Height="132" />
+                            <Separator Margin="0,10,0,12" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <TextBlock Text="把真实进展留成一张图" FontWeight="SemiBold" />
+                                    <TextBlock x:Name="ReportMessageText"
+                                               Margin="0,4,12,0"
+                                               Text="生成最近 7 个计数日的 PNG 周报，方便保存或分享。"
+                                               Style="{StaticResource SecondaryTextStyle}" />
+                                </StackPanel>
+                                <Button Grid.Column="1"
+                                        Content="生成周报…"
+                                        Click="ExportReportButton_Click" />
+                            </Grid>
+                        </StackPanel>
+                    </Expander>
+                </Border>
+
+                <Border Style="{StaticResource CardStyle}">
+                    <Expander Header="🕒  今日记录" Style="{StaticResource SectionExpanderStyle}" IsExpanded="False">
+                        <StackPanel x:Name="RecordsPanel" Margin="0,12,0,0" />
+                    </Expander>
+                </Border>
+
+                <Border Style="{StaticResource CardStyle}">
+                    <Expander Header="⚙️  设置" Style="{StaticResource SectionExpanderStyle}" IsExpanded="False">
+                        <StackPanel Margin="0,14,0,0">
+                            <DockPanel>
+                                <TextBlock x:Name="LimitText" DockPanel.Dock="Right" FontWeight="SemiBold" />
+                                <TextBlock Text="每日上限" />
+                            </DockPanel>
+                            <Slider x:Name="LimitSlider"
+                                    Margin="0,5,0,0"
+                                    Minimum="1" Maximum="60"
+                                    TickFrequency="1"
+                                    IsSnapToTickEnabled="True"
+                                    ValueChanged="SettingControl_Changed" />
+
+                            <TextBlock Margin="0,14,0,5" Text="计数日从" />
+                            <ComboBox x:Name="DayStartCombo" SelectionChanged="SettingControl_Changed" />
+                            <TextBlock Margin="0,5,0,0"
+                                       Text="选择 08:00 时，凌晨 02:00 的记录仍算在前一天。"
+                                       Style="{StaticResource SecondaryTextStyle}" />
+
+                            <TextBlock Margin="0,14,0,5" Text="桌宠外观" />
+                            <ComboBox x:Name="PetStyleCombo" SelectionChanged="SettingControl_Changed" />
+
+                            <DockPanel Margin="0,14,0,5">
+                                <TextBlock x:Name="PetScaleText" DockPanel.Dock="Right" FontWeight="SemiBold" />
+                                <TextBlock Text="桌宠大小" />
+                            </DockPanel>
+                            <Slider x:Name="PetScaleSlider"
+                                    Minimum="0.6" Maximum="1"
+                                    TickFrequency="0.05"
+                                    IsSnapToTickEnabled="True"
+                                    ValueChanged="SettingControl_Changed" />
+                            <TextBlock x:Name="PetHelpText"
+                                       Margin="0,6,0,0"
+                                       Style="{StaticResource SecondaryTextStyle}" />
+                            <Button x:Name="SaveSettingsButton"
+                                    Margin="0,14,0,0"
+                                    HorizontalAlignment="Right"
+                                    Content="保存设置"
+                                    Style="{StaticResource PrimaryButtonStyle}"
+                                    Click="SaveSettingsButton_Click" />
+                        </StackPanel>
+                    </Expander>
+                </Border>
+
+                <Border Style="{StaticResource CardStyle}">
+                    <Expander Header="↩️  重新开始" Style="{StaticResource SectionExpanderStyle}" IsExpanded="False">
+                        <Grid Margin="0,14,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock x:Name="ResetTitleText" FontWeight="SemiBold" />
+                                <TextBlock Margin="0,5,14,0"
+                                           Text="必须写下原因并经过两次确认。每日上限、计数日和桌宠设置会保留。"
+                                           Style="{StaticResource SecondaryTextStyle}" />
+                            </StackPanel>
+                            <Button x:Name="ResetButton"
+                                    Grid.Column="1"
+                                    Content="重置历史…"
+                                    Style="{StaticResource DangerButtonStyle}"
+                                    Click="ResetButton_Click" />
+                        </Grid>
+                    </Expander>
+                </Border>
+
+                <StackPanel Margin="2,2,2,10">
+                    <TextBlock Text="数据仅保存在这台 Windows 电脑上。关闭面板不会退出应用，桌宠仍可从任务栏托盘找回。"
+                               Style="{StaticResource SecondaryTextStyle}" />
+                    <TextBlock x:Name="DataPathText"
+                               Margin="0,5,0,0"
+                               FontSize="10.5"
+                               Foreground="{DynamicResource TertiaryTextBrush}" />
+                    <DockPanel Margin="0,10,0,0">
+                        <TextBlock DockPanel.Dock="Right">
+                            <Hyperlink NavigateUri="https://github.com/doublesq97-ui/flicky-ashtray"
+                                       RequestNavigate="Hyperlink_RequestNavigate">GitHub</Hyperlink>
+                        </TextBlock>
+                        <TextBlock Text="@Sukiea1008" Foreground="{DynamicResource SecondaryTextBrush}" />
+                    </DockPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

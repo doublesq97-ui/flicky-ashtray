@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <RootNamespace>FlickyAshtray.Windows</RootNamespace>
+    <AssemblyName>FlickyAshtray</AssemblyName>
+    <ApplicationIcon>Assets/AppIcon.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>0.5.0</Version>
+    <AssemblyVersion>0.5.0.0</AssemblyVersion>
+    <FileVersion>0.5.0.0</FileVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../FlickyAshtray.Core/FlickyAshtray.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="../../assets/ashtray.png" Link="Assets/ashtray.png" />
+    <Resource Include="../../assets/ash-sprinkle.png" Link="Assets/ash-sprinkle.png" />
+    <Resource Include="../../assets/ash-full.png" Link="Assets/ash-full.png" />
+    <Resource Include="../../assets/ash-over.png" Link="Assets/ash-over.png" />
+    <Resource Include="../../assets/ash-filthy.png" Link="Assets/ash-filthy.png" />
+    <Resource Include="../../assets/cigarette.png" Link="Assets/cigarette.png" />
+    <Content Include="../../LICENSE" Link="Licenses/LICENSE.txt" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../../assets/LICENSE.md" Link="Licenses/ASSET-LICENSE.md" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

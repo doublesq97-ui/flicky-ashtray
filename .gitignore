@@ -4,3 +4,5 @@ dist/
 tmp/
 .DS_Store
 Packaging/AppIcon-1024.png
+Windows/**/bin/
+Windows/**/obj/
