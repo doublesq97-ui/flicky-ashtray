@@ -4,6 +4,15 @@
 
 Flicky Ashtray is a quiet native desktop smoking log for macOS and Windows. Choose an ashtray or compact note, tap once to log, hover for today’s status, and keep all data on-device.
 
+## 直接下载 / Download
+
+普通使用者不需要 Fork、Clone 或自己构建，点击对应平台即可下载：
+
+- [⬇️ 下载 macOS 版（DMG，macOS 13+ / Apple Silicon）](https://github.com/doublesq97-ui/flicky-ashtray/releases/download/v0.4.0/Flicky-Ashtray-0.4.0-arm64.dmg)
+- [⬇️ 下载 Windows 预览版（ZIP，Windows 10/11 x64）](https://github.com/doublesq97-ui/flicky-ashtray/releases/download/v0.5.0-preview.1/Flicky-Ashtray-0.5.0-preview.1-windows-x64.zip)
+
+macOS 打开 DMG 后将应用拖入 `Applications`。Windows 需先完整解压 ZIP，再运行 `FlickyAshtray.exe`；当前预览版尚未使用 Authenticode 商业证书签名，首次启动可能显示“未知发布者”。详情见 [`Windows/README.md`](Windows/README.md)。
+
 ## 平台状态 / Platform status
 
 | 平台 | 当前状态 | 下载形式 |
@@ -28,13 +37,6 @@ Flicky Ashtray is a quiet native desktop smoking log for macOS and Windows. Choo
 ## 原生实现 / Native implementation
 
 macOS 版使用 Swift、AppKit 与 SwiftUI；Windows 版使用 C#、.NET 与 WPF。桌面只常驻透明无边框小桌宠，记录、趋势和设置位于按需打开的原生控制面板。两个版本共用同一套 v8 JSON 数据结构和计数规则，不依赖 WebView、Electron 或 Tauri。
-
-## 下载与安装 / Download & install
-
-从 [GitHub Releases](https://github.com/doublesq97-ui/flicky-ashtray/releases) 下载对应平台的文件。
-
-- macOS：打开 `.dmg`，把 `Flicky Ashtray.app` 拖入 `Applications`。
-- Windows：解压 ZIP，运行 `FlickyAshtray.exe`。当前 Windows 预览包尚未购买 Authenticode 商业代码签名，首次运行可能显示“未知发布者”；详情见 [`Windows/README.md`](Windows/README.md)。
 
 ## 开发 / Development
 
