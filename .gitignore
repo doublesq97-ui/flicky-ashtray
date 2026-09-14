@@ -1,0 +1,6 @@
+dist/
+.build/
+.codebase-memory/
+tmp/
+.DS_Store
+Packaging/AppIcon-1024.png

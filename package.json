@@ -1,0 +1,10 @@
+{
+  "name": "flicky-ashtray",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*contract.test.mjs && swift test",
+    "build:mac": "./scripts/build-app.sh"
+  }
+}
