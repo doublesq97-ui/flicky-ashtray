@@ -4,6 +4,8 @@
 
 Flicky Ashtray is a quiet native desktop smoking log for macOS and Windows. Choose an ashtray or compact note, tap once to log, hover for today’s status, and keep all data on-device.
 
+![Flicky Ashtray — quiet, fully local smoking tracker for macOS and Windows](assets/marketing/flicky-ashtray-cover.png)
+
 ## 直接下载 / Download
 
 普通使用者不需要 Fork、Clone 或自己构建，点击对应平台即可下载：
